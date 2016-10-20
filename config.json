@@ -1,0 +1,7 @@
+{
+    "webhook_url": "https://hooks.slack.com/<your_webhook_url>",
+    "user_name": "lunch_bot",
+    "channel": "<channel_name>",
+    "shop_list": "<path to shop list file>",
+    "icon_emoji": ":thinking_face:"
+}
