@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	msgT = "そろそろお昼にしませんか？今日のオススメは\n```{{ range . }}{{ .Description }}\n{{ end }}```"
+	msgT = "@here そろそろお昼にしませんか？今日のオススメは\n```{{ range . }}{{ .Description }}\n{{ end }}```"
 )
 
 var messageTemplate *template.Template
@@ -78,6 +78,7 @@ type Payload struct {
 	UserName  string `json:"username"`
 	Text      string `json:"text"`
 	IconEmoji string `json:"icon_emoji"`
+	LinkNames int    `json:"link_names,omitempty"`
 }
 
 func post(url string, p Payload) error {
@@ -137,6 +138,7 @@ func main() {
 		UserName:  c.UserName,
 		Text:      msg,
 		IconEmoji: c.IconEmoji,
+		LinkNames: 1,
 	})
 	if err != nil {
 		log.Printf("posting error: %v", err)
